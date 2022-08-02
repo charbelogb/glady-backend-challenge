@@ -21,12 +21,6 @@ public class UserTest {
     }
 
     @Test
-    public void getBalance_OK() {
-        User user = new User(USER_NAME);
-        assertEquals(user.getBalance(), 0.0);
-    }
-
-    @Test
     public void getDeposits_OK() {
         User user = new User(USER_NAME);
         assertNotNull(user.getDeposits());

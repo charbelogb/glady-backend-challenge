@@ -3,17 +3,46 @@ package fr.glady.challenge.backend;
 import fr.glady.challenge.backend.model.*;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DepositServices {
 
+    /**
+     * Dstribute Gift deposits
+     * @param company
+     * @param amount
+     * @param user
+     * @throws Exception
+     */
     public static void gift(Company company, double amount, User user) throws Exception {
         checkAmounts(company, amount);
         operateDeposit(DepositType.GIFT, company, amount, user);
     }
 
+    /**
+     * Distribute meal deposits
+     * @param company
+     * @param amount
+     * @param user
+     * @throws Exception
+     */
     public static void meal(Company company, double amount, User user) throws Exception {
         checkAmounts(company, amount);
         operateDeposit(DepositType.MEAL, company, amount, user);
+    }
+
+    /**
+     * User's balance is determined by the sum of the amount of user's valid deposits.
+     * @return user balance
+     */
+    public static double getUserBalance(User user) {
+        if (user != null) {
+            List<Deposit> validDeposit = user.getDeposits().stream().filter(deposit -> deposit.getExpirationDate().isAfter(LocalDate.now())).collect(Collectors.toList());
+            List<Double> depositAmounts = validDeposit.stream().map(Deposit::getAmount).collect(Collectors.toList());
+            return depositAmounts.stream().reduce(0.0, (a, b) -> a + b);
+        }
+        return 0;
     }
 
     /**
