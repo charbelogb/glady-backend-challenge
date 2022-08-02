@@ -1,0 +1,9 @@
+fr\glady\challenge\backend\model\MealDeposit.class
+fr\glady\challenge\backend\DepositServices.class
+fr\glady\challenge\backend\model\User.class
+fr\glady\challenge\backend\model\DepositType.class
+fr\glady\challenge\backend\model\Company.class
+fr\glady\challenge\backend\utils\DateUtils.class
+fr\glady\challenge\backend\model\Deposit.class
+fr\glady\challenge\backend\model\GiftDeposit.class
+fr\glady\challenge\backend\App.class
