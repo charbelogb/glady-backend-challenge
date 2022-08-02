@@ -76,7 +76,7 @@ public class GiftDepositTest {
         GiftDeposit giftDeposit = new GiftDeposit(apple, 1000, guera, depositDate);
         assertNotNull(giftDeposit.getUser());
         assertEquals(guera.getFullName(), giftDeposit.getUser().getFullName());
-        assertEquals(0, DepositServices.getBalance(giftDeposit.getUser()));
+        assertEquals(0, DepositServices.getUserBalance(giftDeposit.getUser()));
         assertEquals(0, giftDeposit.getUser().getDeposits().size());
     }
 

@@ -36,7 +36,7 @@ public class DepositServices {
      * User's balance is determined by the sum of the amount of user's valid deposits.
      * @return user balance
      */
-    public static double getBalance(User user) {
+    public static double getUserBalance(User user) {
         if (user != null) {
             List<Deposit> validDeposit = user.getDeposits().stream().filter(deposit -> deposit.getExpirationDate().isAfter(LocalDate.now())).collect(Collectors.toList());
             List<Double> depositAmounts = validDeposit.stream().map(Deposit::getAmount).collect(Collectors.toList());

@@ -18,10 +18,10 @@ public class App {
             Company tesla = new Company("Tesla", balance);
             System.out.println(tesla.getName() + " company's initial balance is : $" + tesla.getBalance());
             User marlene = new User("Marlène");
-            System.out.println(marlene.getFullName() + "'s initial balance is : $" + DepositServices.getBalance(marlene));
+            System.out.println(marlene.getFullName() + "'s initial balance is : $" + DepositServices.getUserBalance(marlene));
             DepositServices.gift(tesla, amount, marlene);
             System.out.println(tesla.getName() + " distributed a $" + amount + " " + tesla.getDeposits().get(0).getType().value + " deposit for " + marlene.getFullName());
-            System.out.println(marlene.getFullName() + "'s balance is now : $" + DepositServices.getBalance(marlene));
+            System.out.println(marlene.getFullName() + "'s balance is now : $" + DepositServices.getUserBalance(marlene));
             System.out.println(marlene.getFullName() + " has until " + marlene.getDeposits().get(0).getExpirationDate() + " to spend her gift");
             System.out.println("... and " + tesla.getName() + "'s balance is now : $" + tesla.getBalance() + "\n");
 
@@ -29,7 +29,7 @@ public class App {
             System.out.println("******* MEAL SERVICE *******");
             DepositServices.meal(tesla, amount, marlene);
             System.out.println(tesla.getName() + " now distributed a $" + amount + " " + tesla.getDeposits().get(1).getType().value + " deposit for " + marlene.getFullName());
-            System.out.println(marlene.getFullName() + "'s balance is now : $" + DepositServices.getBalance(marlene));
+            System.out.println(marlene.getFullName() + "'s balance is now : $" + DepositServices.getUserBalance(marlene));
             System.out.println(marlene.getFullName() + " has until " + marlene.getDeposits().get(1).getExpirationDate() + " to spend her gift");
             System.out.println("... and " + tesla.getName() + "'s balance is now : $" + tesla.getBalance() + "\n");
 

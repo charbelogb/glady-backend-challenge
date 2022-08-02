@@ -76,7 +76,7 @@ public class MealDepositTest {
         MealDeposit mealDeposit = new MealDeposit(tesla, 1000, tassi, depositDate);
         assertNotNull(mealDeposit.getUser());
         assertEquals(mealDeposit.getUser().getFullName(), tassi.getFullName());
-        assertEquals(0, DepositServices.getBalance(mealDeposit.getUser()));
+        assertEquals(0, DepositServices.getUserBalance(mealDeposit.getUser()));
         assertEquals(mealDeposit.getUser().getDeposits().size(), 0);
     }
 
