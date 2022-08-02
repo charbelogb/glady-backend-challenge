@@ -3,7 +3,6 @@ package fr.glady.challenge.backend;
 import fr.glady.challenge.backend.utils.DateUtils;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.time.Month;
 

@@ -7,7 +7,6 @@ import fr.glady.challenge.backend.model.User;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Month;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MealDepositTest {
@@ -77,7 +76,7 @@ public class MealDepositTest {
         MealDeposit mealDeposit = new MealDeposit(tesla, 1000, tassi, depositDate);
         assertNotNull(mealDeposit.getUser());
         assertEquals(mealDeposit.getUser().getFullName(), tassi.getFullName());
-        assertEquals(mealDeposit.getUser().getBalance(), 0);
+        assertEquals(0, DepositServices.getBalance(mealDeposit.getUser()));
         assertEquals(mealDeposit.getUser().getDeposits().size(), 0);
     }
 

@@ -5,10 +5,7 @@ import fr.glady.challenge.backend.model.DepositType;
 import fr.glady.challenge.backend.model.GiftDeposit;
 import fr.glady.challenge.backend.model.User;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-import java.time.Month;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -79,17 +76,8 @@ public class GiftDepositTest {
         GiftDeposit giftDeposit = new GiftDeposit(apple, 1000, guera, depositDate);
         assertNotNull(giftDeposit.getUser());
         assertEquals(guera.getFullName(), giftDeposit.getUser().getFullName());
-        assertEquals(0, giftDeposit.getUser().getBalance());
+        assertEquals(0, DepositServices.getBalance(giftDeposit.getUser()));
         assertEquals(0, giftDeposit.getUser().getDeposits().size());
-    }
-
-    @Test
-    public void getExpirationDate_OK() throws Exception {
-        Company apple = new Company(COMPANY_NAME, COMPANY_BALANCE);
-        User guera = new User(USER_NAME);
-        GiftDeposit giftDeposit = new GiftDeposit(apple, 1000, guera, LocalDate.of(2021, Month.JUNE, 15));
-        LocalDate expectedExpirationDate = LocalDate.of(2022, Month.JUNE, 14);
-        assertEquals(expectedExpirationDate, giftDeposit.getExpirationDate());
     }
 
 }
